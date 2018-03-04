@@ -1,25 +1,25 @@
-setClass(Class="Trapezoid",
+setClass(Class="Trapezoid", 
          representation = representation(
-           x = "numeric",
-           y = "numeric"
+           result = "numeric",
+           x="numeric",
+           y="numeric"
          ),
          prototype = prototype(
-           x = c(),
-           y = c()
-         )
+           result =  c(),
+           x= c(),
+           y= c())
 )
-
-setClass(Class="Simpson",
+setClass(Class="Simpson", 
          representation = representation(
-           x = "numeric",
-           y = "numeric"
+           result = "numeric",
+           x="numeric",
+           y="numeric"
          ),
          prototype = prototype(
-           x = c(),
-           y = c()
-         )
+           result =  c(),
+           x= c(),
+           y= c())
 )
-
 setGeneric("integrateIt",
            function(object="Trapezoid")  {
              standardGeneric("intergrateIt")
@@ -28,7 +28,6 @@ setMethod("integrateIt", "Trapezoid",
           function(object){
             return(object@square)
           })
-
 setGeneric("integrateIt",
            function(object="Simpson")  {
              standardGeneric("intergrateIt")
@@ -38,18 +37,19 @@ setMethod("integrateIt", "Simpson",
             return(object@square)
           })
 
+#dummy function
 integrateIt()<-function(x,y,type=NULL){
   a<-min(x)
   b<-max(x)
   h<-(b-a)/2
   if(type=="Trapezoid")(
     
-    value<-(h/2)*sum()
-    return(value)
+    trapvalue<-(h/2)*sum()
+    return(trapvalue)
   )
   if(type=="Simpson")(
-    value<-(h/3)*sum()
-    return(value)
+    simpvalue<-(h/3)*sum()
+    return(simpvalue)
   )
   if(type=="both")(
     
