@@ -27,7 +27,7 @@ setGeneric(name="integrateIt",
 )
 
 setMethod(f="integrateIt",
-          definition=function(x,y,bounds=c(a,b),rule, ...){
+          definition=function(x,y,bounds=c(a,b),rule){
             x<-as.matrix(x)
             x<-t(x)
             y<-as.matrix(y)
@@ -56,6 +56,11 @@ setMethod(f="integrateIt",
               y<-as.vector(y)
               return(new("Simpson", result=sum(simpoutput), x = x, y = y))}
           }
+)
+
+setGeneric(name="print",
+           def=function(x, y, bounds, rule,...)
+           {standardGeneric("print")}
 )
 
 setMethod(f="print",
@@ -89,9 +94,4 @@ setMethod(f="print",
               return(result=sum(simpoutput))}
           }
 )
-
-x<-c(0,1,2,3,4,5,6,7,8,9,10)
-y<-c(0,2,4,6,8,10,12,14,16,18,20)
-integrateIt(x,y,bounds=c(0,10),rule="Simpson")
-print(x,y,bounds=c(0,10),rule="Simpson")
 
