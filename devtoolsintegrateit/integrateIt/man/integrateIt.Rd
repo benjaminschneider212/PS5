@@ -38,5 +38,5 @@ integrateIt(X, Y, c(0,10), type="Trap")
 \code{\link{print}}
 }
 \author{
-Jacob M. Montgomery
+Benjamin Schneider
 }

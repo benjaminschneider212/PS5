@@ -30,35 +30,35 @@ setGeneric(name="integrateIt",
 #' @export
 setMethod(f="integrateIt",
           definition=function(x,y,bounds=c(a,b),rule){
-            x<-as.matrix(x)
-            x<-t(x)
-            y<-as.matrix(y)
-            y<-t(y)
-            if (ncol(x)==ncol(y)){
+            x<-as.matrix(x) #this is done for functionality
+            x<-t(x) #same
+            y<-as.matrix(y) #same
+            y<-t(y) #same
+            if (ncol(x)==ncol(y)){#ifr condition to make sure the function works
             if (rule=="Trap"){
-              trapvec<-y*2
-              trapvec[1]<-y[1]
-              trapvec[ncol(y)]<-y[ncol(y)]
-              h<-(bounds[2]-bounds[1]+1)/ncol(x)
-              trapoutput<-h/2*(trapvec)
-              x<-as.vector(x)
+              trapvec<-y*2 #setting up the doubled values
+              trapvec[1]<-y[1] #replace the first
+              trapvec[ncol(y)]<-y[ncol(y)] #replace the last
+              h<-(bounds[2]-bounds[1]+1)/ncol(x) #creates the h with the bounds, the plus 1 is to make the math work
+              trapoutput<-h/2*(trapvec) #setting up the series of numbers
+              x<-as.vector(x) #transfering the x and y output back to how it was entered
               y<-as.vector(y)
-              return(new("Trapezoid", result=sum(trapoutput), x = x, y = y))
+              return(new("Trapezoid", result=sum(trapoutput), x = x, y = y)) #create the output, notice the sum of trap output for all of the values
             }
             if (rule=="Simpson"){
-              simpvec<-y
+              simpvec<-y #Setting up the vector
               for (i in 1:ncol(y)){
                 if((i %% 2) == 0){
-                  simpvec[i]<-y[i]*4} 
-                else {simpvec[i]<-y[i]*2}}
-              simpvec[1]<-y[1]
-              simpvec[ncol(y)]<-y[ncol(y)]
-              h<-(bounds[2]-bounds[1]+1)/ncol(x)
-              simpoutput<-h/3*(simpvec)
-              x<-as.vector(x)
+                  simpvec[i]<-y[i]*4} #for loop mutiplying every ther value by 4
+                else {simpvec[i]<-y[i]*2}} #doing the rest by two
+              simpvec[1]<-y[1] #replace the first term
+              simpvec[ncol(y)]<-y[ncol(y)] #replace the last term
+              h<-(bounds[2]-bounds[1]+1)/ncol(x) #create the h agan
+              simpoutput<-h/3*(simpvec) #same thing but divided by 3
+              x<-as.vector(x) #transfering the x and y output back to how it was entered
               y<-as.vector(y)
-              return(new("Simpson", result=sum(simpoutput), x = x, y = y))}
-            else{return("Please select a valid rule")}}
-            else{return("make sure your x and y are of equal length")}
+              return(new("Simpson", result=sum(simpoutput), x = x, y = y))} #Create the output
+            else{return("Please select a valid rule")}} #errors thrown
+            else{return("make sure your x and y are of equal length")} #errors thrown
           }
 )

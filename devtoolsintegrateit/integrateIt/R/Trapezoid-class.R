@@ -16,7 +16,7 @@
 #' @export
 setClass(Class="Trapezoid", 
          representation = representation(
-           result = "numeric",
+           result = "numeric", #class creation with all of the necessary parts
            x="numeric",
            y="numeric"
          ),
