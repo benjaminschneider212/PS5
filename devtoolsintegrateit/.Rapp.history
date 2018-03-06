@@ -1,0 +1,5 @@
+library(devtools)
+library(devtools)
+library(roxygen2)
+setwd("/Users/benjaminschneider/Documents/GitHub/PS5/devtoolsintegrateit/")
+devtools::create("integrateIt")

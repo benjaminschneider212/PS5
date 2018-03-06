@@ -50,6 +50,7 @@ setMethod(f="integrateIt",
                 else {simpvec[i]<-y[i]*2}}
               simpvec[1]<-y[1]
               simpvec[ncol(y)]<-y[ncol(y)]
+              h<-(10-0+1)/ncol(x)
               h<-(bounds[2]-bounds[1]+1)/ncol(x)
               simpoutput<-h/3*(simpvec)
               x<-as.vector(x)

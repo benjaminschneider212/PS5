@@ -1,9 +1,6 @@
-
-## Load libraries and set working directory
 library(devtools)
 library(roxygen2)
-setwd() #This will need to be changed to match your directory
-
+setwd("/Users/benjaminschneider/Documents/GitHub/PS5/devtoolsintegrateit/")
 ## This is run once when the package strcuture is first created
 
 
@@ -11,12 +8,3 @@ setwd() #This will need to be changed to match your directory
 current.code <- as.package("integrateIt")
 load_all(current.code)
 document(current.code)
-
-## Let's look at a function
-
-## Let's try it out
-
-
-
-
-

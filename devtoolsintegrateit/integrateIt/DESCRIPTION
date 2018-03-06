@@ -1,0 +1,11 @@
+Package: integrateIt
+Title: Integration estimates
+Version: 0.0.0.9000
+Author: Benjamin Schneider
+Maintainer: Benjamin Schneider <benjamin.schneider@wustl.edu>
+Description: This package takes a series of values and returns an estimate based on two different often used estimates of integrals, the trapezoidal rule and Simpson rule.
+Depends: R (>= 3.4.1)
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
