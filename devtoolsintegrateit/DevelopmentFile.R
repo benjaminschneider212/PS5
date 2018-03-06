@@ -8,3 +8,5 @@ setwd("/Users/benjaminschneider/Documents/GitHub/PS5/devtoolsintegrateit/")
 current.code <- as.package("integrateIt")
 load_all(current.code)
 document(current.code)
+
+release(current.code, check=F)

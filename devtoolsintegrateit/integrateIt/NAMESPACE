@@ -2,7 +2,9 @@
 
 export(integrateIt)
 export(print)
+export(tolTest)
 exportClasses(Simpson)
 exportClasses(Trapezoid)
 exportMethods(integrateIt)
 exportMethods(print)
+exportMethods(tolTest)
